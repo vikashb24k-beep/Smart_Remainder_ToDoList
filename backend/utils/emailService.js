@@ -12,7 +12,7 @@ async function sendTaskReminderEmail({ to, name, title }) {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to,
-    subject: "? Reminder - Task Due",
+    subject: "Reminder: Task Due",
     text: `Hey ${name}, it's time to: ${title}`,
   };
 

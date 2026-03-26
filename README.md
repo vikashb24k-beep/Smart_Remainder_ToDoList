@@ -42,6 +42,8 @@ MONGO_URI=mongodb://127.0.0.1:27017/smart_reminder
 JWT_SECRET=replace_with_a_strong_secret
 EMAIL_USER=your_gmail@gmail.com
 EMAIL_PASS=your_gmail_app_password
+REMINDER_TIMEZONE=Asia/Kolkata
+REMINDER_GRACE_MINUTES=2
 PORT=5000
 FRONTEND_URL=http://localhost:5173
 ```
@@ -94,7 +96,7 @@ npm run dev
 - `DELETE /api/tasks/:id`
 
 ## Notes
-- Cron scheduler checks every minute and sends reminder email only for due, incomplete tasks.
+- Cron scheduler checks every minute in `REMINDER_TIMEZONE` and supports a short catch-up window using `REMINDER_GRACE_MINUTES` (useful after deploy restarts).
 - Duplicate email sends are prevented using `lastNotified`.
 - Each user can manage only their own tasks.
 - Browser notifications can be enabled from dashboard.
